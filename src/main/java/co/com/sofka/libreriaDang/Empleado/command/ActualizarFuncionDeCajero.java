@@ -3,21 +3,21 @@ package co.com.sofka.libreriaDang.Empleado.command;
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.libreriaDang.Empleado.value.Funcion;
 import co.com.sofka.libreriaDang.Empleado.value.IdCajero;
-import co.com.sofka.libreriaDang.Tienda.value.IdTienda;
+import co.com.sofka.libreriaDang.Empleado.value.IdEmpleado;
 
 public class ActualizarFuncionDeCajero extends Command {
-    private final IdTienda idTienda;
+    private final IdEmpleado idEmpleado;
     private final IdCajero idCajero;
     private final Funcion funcion;
 
-    public ActualizarFuncionDeCajero(IdTienda idTienda, IdCajero idCajero, Funcion funcion) {
-        this.idTienda = idTienda;
+    public ActualizarFuncionDeCajero(IdEmpleado idEmpleado, IdCajero idCajero, Funcion funcion) {
+        this.idEmpleado = idEmpleado;
         this.idCajero = idCajero;
         this.funcion = funcion;
     }
 
-    public IdTienda getIdTienda() {
-        return idTienda;
+    public IdEmpleado getIdEmpleado() {
+        return idEmpleado;
     }
 
     public IdCajero getIdCajero() {

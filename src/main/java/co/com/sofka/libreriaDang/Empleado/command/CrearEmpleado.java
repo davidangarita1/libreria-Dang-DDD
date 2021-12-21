@@ -4,11 +4,11 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofka.libreriaDang.Empleado.value.IdEmpleado;
 import co.com.sofka.libreriaDang.Generico.Nombre;
 
-public class CrearEmpelado extends Command {
+public class CrearEmpleado extends Command {
     private final IdEmpleado idEmpleado;
     private final Nombre nombre;
 
-    public CrearEmpelado(IdEmpleado idEmpleado, Nombre nombre) {
+    public CrearEmpleado(IdEmpleado idEmpleado, Nombre nombre) {
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
     }

@@ -2,22 +2,22 @@ package co.com.sofka.libreriaDang.Empleado.command;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.libreriaDang.Empleado.value.Funcion;
+import co.com.sofka.libreriaDang.Empleado.value.IdEmpleado;
 import co.com.sofka.libreriaDang.Empleado.value.IdGerente;
-import co.com.sofka.libreriaDang.Tienda.value.IdTienda;
 
 public class ActualizarGerente extends Command {
-    private final IdTienda idTienda;
+    private final IdEmpleado idEmpleado;
     private final IdGerente idGerente;
     private final Funcion funcion;
 
-    public ActualizarGerente(IdTienda idTienda, IdGerente idGerente, Funcion funcion) {
-        this.idTienda = idTienda;
+    public ActualizarGerente(IdEmpleado idEmpleado, IdGerente idGerente, Funcion funcion) {
+        this.idEmpleado = idEmpleado;
         this.idGerente = idGerente;
         this.funcion = funcion;
     }
 
-    public IdTienda getIdTienda() {
-        return idTienda;
+    public IdEmpleado getIdEmpleado() {
+        return idEmpleado;
     }
 
     public IdGerente getIdGerente() {
