@@ -1,4 +1,6 @@
 package co.com.sofka.libreriaDang.Empleado.value;
 
-public class IdGerente {
+import co.com.sofka.domain.generic.Identity;
+
+public class IdGerente extends Identity {
 }

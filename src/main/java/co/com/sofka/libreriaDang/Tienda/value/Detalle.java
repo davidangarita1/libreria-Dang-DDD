@@ -1,4 +1,10 @@
 package co.com.sofka.libreriaDang.Tienda.value;
 
-public class Detalle {
+import co.com.sofka.domain.generic.ValueObject;
+
+public class Detalle implements ValueObject<String> {
+    @Override
+    public String value() {
+        return null;
+    }
 }

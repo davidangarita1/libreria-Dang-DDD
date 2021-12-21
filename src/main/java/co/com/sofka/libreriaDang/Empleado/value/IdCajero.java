@@ -1,4 +1,6 @@
 package co.com.sofka.libreriaDang.Empleado.value;
 
-public class IdCajero {
+import co.com.sofka.domain.generic.Identity;
+
+public class IdCajero extends Identity {
 }

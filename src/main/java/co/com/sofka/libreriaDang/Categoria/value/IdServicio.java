@@ -1,4 +1,6 @@
 package co.com.sofka.libreriaDang.Categoria.value;
 
-public class IdServicio {
+import co.com.sofka.domain.generic.Identity;
+
+public class IdServicio extends Identity {
 }
