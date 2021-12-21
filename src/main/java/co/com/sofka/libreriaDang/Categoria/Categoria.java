@@ -1,10 +1,12 @@
 package co.com.sofka.libreriaDang.Categoria;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.libreriaDang.Categoria.event.*;
 import co.com.sofka.libreriaDang.Categoria.value.*;
 import co.com.sofka.libreriaDang.Generico.Nombre;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -25,6 +27,12 @@ public class Categoria extends AggregateEvent<IdCategoria> {
         subscribe(new CategoriaChange(this));
     }
 
+    public static Categoria from(IdCategoria idCategoria, List<DomainEvent> events){
+        var categoria = new Categoria(idCategoria);
+        events.forEach(categoria::applyEvent);
+        return categoria;
+    }
+
     public void agregarProducto(IdProducto idProducto, Precio precio, Descripcion descripcion){
         Objects.requireNonNull(idProducto);
         Objects.requireNonNull(precio);
@@ -36,7 +44,7 @@ public class Categoria extends AggregateEvent<IdCategoria> {
         Objects.requireNonNull(idServicio);
         Objects.requireNonNull(precio);
         Objects.requireNonNull(descripcion);
-        appendChange(new ServicioCreado(idServicio, precio, descripcion)).apply();
+        appendChange(new ServicioAgregado(idServicio, precio, descripcion)).apply();
     };
 
     public void actualizarNombre(Nombre nombre){
@@ -59,13 +67,13 @@ public class Categoria extends AggregateEvent<IdCategoria> {
         appendChange(new PrecioDeServicioActualizado(idServicio, precio)).apply();
     };
 
-    public Optional<Producto> getProductoPorId(IdProducto idProducto){
+    protected Optional<Producto> getProductoPorId(IdProducto idProducto){
         return productos
                 .stream()
                 .filter(producto -> producto.identity().equals(idProducto)).findFirst();
     }
 
-    public Optional<Servicio> getServicioPorId(IdServicio idServicio){
+    protected Optional<Servicio> getServicioPorId(IdServicio idServicio){
         return servicios
                 .stream()
                 .filter(servicio -> servicio.identity().equals(idServicio)).findFirst();

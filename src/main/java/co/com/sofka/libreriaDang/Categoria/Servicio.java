@@ -5,15 +5,25 @@ import co.com.sofka.libreriaDang.Categoria.value.Descripcion;
 import co.com.sofka.libreriaDang.Categoria.value.IdServicio;
 import co.com.sofka.libreriaDang.Categoria.value.Precio;
 
+import java.util.Objects;
+
 public class Servicio extends Entity<IdServicio> {
 
-    private final Precio precio;
-    private final Descripcion descripcion;
+    private Precio precio;
+    private Descripcion descripcion;
 
     public Servicio(IdServicio entityId, Precio precio, Descripcion descripcion) {
         super(entityId);
         this.precio = precio;
         this.descripcion = descripcion;
+    }
+
+    public void actualizarPrecio(Precio precio){
+        this.precio = Objects.requireNonNull(precio);
+    }
+
+    public void actualizarDescripcion(Descripcion descripcion){
+        this.descripcion = Objects.requireNonNull(descripcion);
     }
 
     public Precio precio() {
