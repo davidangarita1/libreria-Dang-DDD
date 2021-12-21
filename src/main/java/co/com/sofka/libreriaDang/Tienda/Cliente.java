@@ -11,8 +11,8 @@ public class Cliente extends Entity<IdCliente> {
     private final Email email;
 
 
-    public Cliente(IdCliente entityId, Nombre nombre, Email email) {
-        super(entityId);
+    public Cliente(IdCliente idCliente, Nombre nombre, Email email) {
+        super(idCliente);
         this.nombre = nombre;
         this.email = email;
     }

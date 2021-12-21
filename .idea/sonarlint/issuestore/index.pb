@@ -13,16 +13,8 @@ q
 Asrc/main/java/co/com/sofka/libreriaDang/Tienda/value/Detalle.java,a\1\a1f37e838b0b24db2b0e06b1a68d72b458024195
 v
 Fsrc/main/java/co/com/sofka/libreriaDang/Tienda/event/TiendaCreada.java,1\e\1e9d0cdbcb72ae1c905fa29379f79baf470cf643
-k
-;src/main/java/co/com/sofka/libreriaDang/Tienda/Factura.java,d\3\d3f604cbb9b80fee2640e21116b5c1bf3cd9138b
-k
-;src/main/java/co/com/sofka/libreriaDang/Tienda/Cliente.java,9\9\99e3e4cece8efa38b79355264a637458e41d5f3a
-j
-:src/main/java/co/com/sofka/libreriaDang/Tienda/Tienda.java,7\2\72a4ec276b2aae4d7b843fee7b1263ce86db4cdb
 ˆ
 Xsrc/main/java/co/com/sofka/libreriaDang/Categoria/event/PrecioDeServicioActualizado.java,9\2\92ee68d85250121a5c751e28a3b48da318d5cbb3
-l
-<src/main/java/co/com/sofka/libreriaDang/Empleado/Cajero.java,e\c\ecd7898af6a2abb50acaba09caed50739f1e2302
 n
 >src/main/java/co/com/sofka/libreriaDang/Empleado/Vendedor.java,1\9\1951f94f32826af463881cb913c626a13b846834
 m
@@ -51,8 +43,6 @@ Xsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeVendedorActuali
 Wsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeGerenteActualizado.java,7\d\7dc39d1c3883bc5dbe00d639214fab391372817e
 †
 Vsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeCajeroActualizado.java,5\3\53967782790f1c59c67078b5cb4da272842f2a3b
-n
->src/main/java/co/com/sofka/libreriaDang/Empleado/Empleado.java,d\3\d3f09ca4ff3ce88b7f700d5ff0ef264283477240
 o
 ?src/main/java/co/com/sofka/libreriaDang/Categoria/Servicio.java,e\1\e1f82ed62bc720cd616f90df8a8d2ebfb7fd8f6c
 o
@@ -65,8 +55,6 @@ Msrc/main/java/co/com/sofka/libreriaDang/Categoria/event/ProductoAgregado.java,
 ]src/main/java/co/com/sofka/libreriaDang/Categoria/event/DescripcionDeServicioActualizado.java,2\7\272bb802702faf6601beb72da2eacd7f53e2e35e
 }
 Msrc/main/java/co/com/sofka/libreriaDang/Categoria/event/ServicioAgregado.java,f\a\fa680a5f50e33cd83ec443e81b7bfef0c5e1b1f4
-Ž
-^src/main/java/co/com/sofka/libreriaDang/Categoria/command/ActualizarDescripcionDeProducto.java,d\8\d8dd0dc36c90fc420ba2e51cd9fb345141c32df4
 Ž
 ^src/main/java/co/com/sofka/libreriaDang/Categoria/command/ActualizarDescripcionDeServicio.java,b\e\be05b0dcbacd09260a1ad8cb00a92e550cf65252
 ~

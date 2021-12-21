@@ -10,8 +10,8 @@ public class Cajero extends Entity<IdCajero> {
 
     protected Funcion funcion;
 
-    public Cajero(IdCajero entityId, Funcion funcion) {
-        super(entityId);
+    public Cajero(IdCajero idCajero, Funcion funcion) {
+        super(idCajero);
         this.funcion = funcion;
     }
 
