@@ -20,7 +20,7 @@ public class Funcion implements ValueObject<String> {
     }
 
     public String value() {
-        return null;
+        return value;
     }
 
     @Override

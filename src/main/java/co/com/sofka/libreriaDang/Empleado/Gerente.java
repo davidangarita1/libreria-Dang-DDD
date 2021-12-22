@@ -10,8 +10,8 @@ public class Gerente extends Entity<IdGerente> {
 
     protected Funcion funcion;
 
-    public Gerente(IdGerente entityId, Funcion funcion) {
-        super(entityId);
+    public Gerente(IdGerente idGerente, Funcion funcion) {
+        super(idGerente);
         this.funcion = funcion;
     }
 

@@ -1,11 +1,13 @@
 package co.com.sofka.libreriaDang.Empleado;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.libreriaDang.Categoria.event.NombreActualizado;
 import co.com.sofka.libreriaDang.Empleado.event.*;
 import co.com.sofka.libreriaDang.Empleado.value.*;
 import co.com.sofka.libreriaDang.Generico.Nombre;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -16,31 +18,42 @@ public class Empleado extends AggregateEvent<IdEmpleado> {
     protected Set<Cajero> cajeros;
     protected Set<Vendedor> vendedores;
 
-    public Empleado(IdEmpleado entityId, Nombre nombre) {
-        super(entityId);
-        appendChange(new EmpleadoCreado(nombre)).apply();
+    public Empleado(IdEmpleado idEmpleado, Nombre nombre, Gerente gerente) {
+        super(idEmpleado);
+        appendChange(new EmpleadoCreado(nombre, gerente)).apply();
     }
 
-    public void agregarGerente(IdGerente idGerente, Funcion funcion){
+    private Empleado(IdEmpleado idEmpleado){
+        super(idEmpleado);
+        subscribe(new EmpleadoChange(this));
+    }
+
+    public static Empleado from(IdEmpleado idEmpleado, List<DomainEvent> events){
+        var empleado = new Empleado(idEmpleado);
+        events.forEach(empleado::applyEvent);
+        return empleado;
+    }
+
+    public void crearGerente(IdGerente idGerente, Funcion funcion){
         Objects.requireNonNull(idGerente);
         Objects.requireNonNull(funcion);
         appendChange(new GerenteCreado(idGerente, funcion)).apply();
     }
 
+    public void actualizarGerente(IdGerente idGerente, Funcion funcion){
+        appendChange(new GerenteActualizado(idGerente, funcion)).apply();
+    }
+
     public void agregarCajero(IdCajero idCajero, Funcion funcion){
         Objects.requireNonNull(idCajero);
         Objects.requireNonNull(funcion);
-        appendChange(new CajeroCreado(idCajero, funcion)).apply();
+        appendChange(new CajeroAgregado(idCajero, funcion)).apply();
     }
 
     public void agregarVendedor(IdVendedor idVendedor, Funcion funcion){
         Objects.requireNonNull(idVendedor);
         Objects.requireNonNull(funcion);
-        appendChange(new VendedorCreado(idVendedor, funcion)).apply();
-    }
-
-    public void actualizarGerente(IdGerente idGerente, Funcion funcion){
-        appendChange(new GerenteActualizado(idGerente, funcion)).apply();
+        appendChange(new VendedorAgregado(idVendedor, funcion)).apply();
     }
 
     public void actualizarNombre(Nombre nombre){
@@ -55,7 +68,7 @@ public class Empleado extends AggregateEvent<IdEmpleado> {
         appendChange(new FuncionDeCajeroActualizado(idCajero, funcion)).apply();
     };
 
-    public void actualziarFuncionDeGerente(IdGerente idGerente, Funcion funcion){
+    public void actualizarFuncionDeGerente(IdGerente idGerente, Funcion funcion){
         appendChange(new FuncionDeGerenteActualizado(idGerente, funcion)).apply();
     };
 

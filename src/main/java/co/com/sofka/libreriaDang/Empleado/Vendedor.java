@@ -10,8 +10,8 @@ public class Vendedor extends Entity<IdVendedor> {
 
     protected Funcion funcion;
 
-    public Vendedor(IdVendedor entityId, Funcion funcion) {
-        super(entityId);
+    public Vendedor(IdVendedor idVendedor, Funcion funcion) {
+        super(idVendedor);
         this.funcion = funcion;
     }
 
