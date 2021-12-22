@@ -9,14 +9,14 @@ import co.com.sofka.libreriaDang.Tienda.value.IdTienda;
 
 public class AgregarFactura extends Command {
     private final IdTienda idTienda;
-    private final IdFactura entityId;
+    private final IdFactura idFactura;
     private final IdVendedor idVendedor;
     private final IdCliente idCliente;
     private final Detalle detalle;
 
-    public AgregarFactura(IdTienda idTienda, IdFactura entityId, IdVendedor idVendedor, IdCliente idCliente, Detalle detalle) {
+    public AgregarFactura(IdTienda idTienda, IdFactura idFactura, IdVendedor idVendedor, IdCliente idCliente, Detalle detalle) {
         this.idTienda = idTienda;
-        this.entityId = entityId;
+        this.idFactura = idFactura;
         this.idVendedor = idVendedor;
         this.idCliente = idCliente;
         this.detalle = detalle;
@@ -26,8 +26,8 @@ public class AgregarFactura extends Command {
         return idTienda;
     }
 
-    public IdFactura getEntityId() {
-        return entityId;
+    public IdFactura getIdFactura() {
+        return idFactura;
     }
 
     public IdVendedor getIdVendedor() {

@@ -1,6 +1,7 @@
 package co.com.sofka.libreriaDang.Tienda;
 
 import co.com.sofka.domain.generic.EventChange;
+import co.com.sofka.libreriaDang.Categoria.event.NombreActualizado;
 import co.com.sofka.libreriaDang.Tienda.event.*;
 
 import java.util.HashSet;
@@ -17,7 +18,6 @@ public class TiendaChange extends EventChange {
         });
 
         apply((ClienteAgregado event) -> {
-            var numClientes = tienda.clientes().size();
             tienda.clientes.add(new Cliente(
                     event.getIdCliente(),
                     event.getNombre(),
@@ -38,7 +38,6 @@ public class TiendaChange extends EventChange {
         });
 
         apply((FacturaAgregada event) -> {
-            var numFacturas = tienda.facturas().size();
             tienda.facturas.add(new Factura(
                     event.getIdFactura(),
                     event.getIdVendedor(),
@@ -61,6 +60,10 @@ public class TiendaChange extends EventChange {
             var cliente = tienda.getClientePorId(event.getIdCliente())
                     .orElseThrow(() -> new IllegalArgumentException("No se encuentra el nombre del cliente"));
             cliente.actualizarNombre(event.getNombre());
+        });
+
+        apply((NombreActualizado event) -> {
+            tienda.nombre = event.getNombre();
         });
     }
 }

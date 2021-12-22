@@ -14,8 +14,8 @@ public class Factura extends Entity<IdFactura> {
     private final IdCliente idCliente;
     private Detalle detalle;
 
-    public Factura(IdFactura entityId, IdVendedor idVendedor, IdCliente idCliente, Detalle detalle) {
-        super(entityId);
+    public Factura(IdFactura idFactura, IdVendedor idVendedor, IdCliente idCliente, Detalle detalle) {
+        super(idFactura);
         this.idVendedor = idVendedor;
         this.idCliente = idCliente;
         this.detalle = detalle;

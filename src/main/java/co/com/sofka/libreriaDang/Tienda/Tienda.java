@@ -71,7 +71,7 @@ public class Tienda extends AggregateEvent<IdTienda> {
         appendChange(new NombreDeClienteActualizado(idCliente, nombre)).apply();
     }
 
-    public void agregarDetalleFactura(IdFactura idFactura, Detalle detalle){
+    public void actualizarDetalleFactura(IdFactura idFactura, Detalle detalle){
         Objects.requireNonNull(idFactura);
         Objects.requireNonNull(detalle);
         appendChange(new DetalleDeFacturaAgregado(idFactura, detalle)).apply();
