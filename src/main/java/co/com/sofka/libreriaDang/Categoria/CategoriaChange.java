@@ -45,7 +45,7 @@ public class CategoriaChange extends EventChange {
         apply((ProductoAgregado event) -> {
             var numProductos = categoria.productos().size();
             if (numProductos == 1000) {
-                throw  new IllegalArgumentException("No pruedes agregar mas productos, solo puedes tener hasta 1000 de ellos");
+                throw  new IllegalArgumentException("No puedes agregar mas productos, solo puedes tener hasta 1000 de ellos");
             }
             categoria.productos.add(new Producto(
                     event.getIdProducto(),

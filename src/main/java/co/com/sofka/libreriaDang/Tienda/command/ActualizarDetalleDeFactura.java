@@ -5,12 +5,12 @@ import co.com.sofka.libreriaDang.Tienda.value.Detalle;
 import co.com.sofka.libreriaDang.Tienda.value.IdFactura;
 import co.com.sofka.libreriaDang.Tienda.value.IdTienda;
 
-public class AgregarDetalleDeFactura extends Command {
+public class ActualizarDetalleDeFactura extends Command {
     private final IdTienda idTienda;
     private final IdFactura idFactura;
     private final Detalle detalle;
 
-    public AgregarDetalleDeFactura(IdTienda idTienda, IdFactura idFactura, Detalle detalle) {
+    public ActualizarDetalleDeFactura(IdTienda idTienda, IdFactura idFactura, Detalle detalle) {
         this.idTienda = idTienda;
         this.idFactura = idFactura;
         this.detalle = detalle;

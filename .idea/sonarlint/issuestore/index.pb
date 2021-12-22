@@ -9,10 +9,6 @@ s
 Csrc/main/java/co/com/sofka/libreriaDang/Tienda/value/IdFactura.java,a\1\a198cd12566d43d37471ee1ce45938d5c3241134
 o
 ?src/main/java/co/com/sofka/libreriaDang/Tienda/value/Email.java,8\8\88ad0faa4a7fbe8e4cbfbd2b03d764bae31af000
-q
-Asrc/main/java/co/com/sofka/libreriaDang/Tienda/value/Detalle.java,a\1\a1f37e838b0b24db2b0e06b1a68d72b458024195
-v
-Fsrc/main/java/co/com/sofka/libreriaDang/Tienda/event/TiendaCreada.java,1\e\1e9d0cdbcb72ae1c905fa29379f79baf470cf643
 ˆ
 Xsrc/main/java/co/com/sofka/libreriaDang/Categoria/event/PrecioDeServicioActualizado.java,9\2\92ee68d85250121a5c751e28a3b48da318d5cbb3
 |
@@ -39,8 +35,6 @@ Xsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeVendedorActuali
 Wsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeGerenteActualizado.java,7\d\7dc39d1c3883bc5dbe00d639214fab391372817e
 †
 Vsrc/main/java/co/com/sofka/libreriaDang/Empleado/event/FuncionDeCajeroActualizado.java,5\3\53967782790f1c59c67078b5cb4da272842f2a3b
-o
-?src/main/java/co/com/sofka/libreriaDang/Categoria/Servicio.java,e\1\e1f82ed62bc720cd616f90df8a8d2ebfb7fd8f6c
 o
 ?src/main/java/co/com/sofka/libreriaDang/Categoria/Producto.java,a\f\afb0225e230b059d5390533d49e93fc5c12427e4
 }

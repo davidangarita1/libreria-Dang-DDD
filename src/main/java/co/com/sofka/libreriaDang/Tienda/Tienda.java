@@ -1,13 +1,16 @@
 package co.com.sofka.libreriaDang.Tienda;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.libreriaDang.Categoria.event.NombreActualizado;
 import co.com.sofka.libreriaDang.Categoria.value.IdCategoria;
 import co.com.sofka.libreriaDang.Empleado.value.IdEmpleado;
 import co.com.sofka.libreriaDang.Empleado.value.IdVendedor;
 import co.com.sofka.libreriaDang.Generico.Nombre;
-import co.com.sofka.libreriaDang.Tienda.event.TiendaCreada;
+import co.com.sofka.libreriaDang.Tienda.event.*;
 import co.com.sofka.libreriaDang.Tienda.value.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -24,47 +27,74 @@ public class Tienda extends AggregateEvent<IdTienda> {
         appendChange(new TiendaCreada(nombre)).apply();
     }
 
+    private Tienda(IdTienda idTienda){
+        super(idTienda);
+        subscribe(new TiendaChange(this));
+    }
+
+    public static Tienda from(IdTienda idTienda, List<DomainEvent> events){
+        var tienda = new Tienda(idTienda);
+        events.forEach(tienda::applyEvent);
+        return tienda;
+    }
+
     public void agregarFactura(IdFactura idFactura, IdVendedor idVendedor, IdCliente idCliente, Detalle detalle){
         Objects.requireNonNull(idFactura);
         Objects.requireNonNull(idVendedor);
         Objects.requireNonNull(idCliente);
         Objects.requireNonNull(detalle);
-        appendChange(new FacturaCreada(idFactura, idVendedor, idCliente, detalle)).apply();
+        appendChange(new FacturaAgregada(idFactura, idVendedor, idCliente, detalle)).apply();
     }
 
-    public void agregarIdCategoria(IdCategoria idCategoria){
+    public void agregarIdCategoria(IdFactura idFactura, IdCategoria idCategoria){
         Objects.requireNonNull(idCategoria);
-        appendChange(new IdCategoriaAgregada(idCategoria)).apply();
+        appendChange(new IdCategoriaAgregada(idFactura, idCategoria)).apply();
     }
 
     public void agregarCliente(IdCliente idCliente, Nombre nombre, Email email){
         Objects.requireNonNull(idCliente);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(email);
-        appendChange(new ClienteCreado(idCliente, nombre, email)).apply();
+        appendChange(new ClienteAgregado(idCliente, nombre, email)).apply();
     }
 
-    public void agregarIdEmpleado(IdEmpleado idEmpleado){
+    public void agregarIdEmpleado(IdFactura idFactura, IdEmpleado idEmpleado){
         Objects.requireNonNull(idEmpleado);
-        appendChange(new IdEmpleadoAgregado(idEmpleado)).apply();
-    };
+        appendChange(new IdEmpleadoAgregado(idFactura, idEmpleado)).apply();
+    }
 
     public void actualizarEmailCliente(IdCliente idCliente, Email email){
-        appendChange(new EmailDeClienteActualizado(idCliente, email));
-    };
+        appendChange(new EmailDeClienteActualizado(idCliente, email)).apply();
+    }
 
-    public void actualizarNombreCliente(){};
+    public void actualizarNombreCliente(IdCliente idCliente, Nombre nombre){
+        appendChange(new NombreDeClienteActualizado(idCliente, nombre)).apply();
+    }
 
-    public void agregarDetalleFactura(){};
+    public void agregarDetalleFactura(IdFactura idFactura, Detalle detalle){
+        Objects.requireNonNull(idFactura);
+        Objects.requireNonNull(detalle);
+        appendChange(new DetalleDeFacturaAgregado(idFactura, detalle)).apply();
+    }
 
-    public void actualizarImporteFactura(){};
-
-    public void actualizarNombre(){};
+    public void actualizarNombre(Nombre nombre){
+        appendChange(new NombreActualizado(nombre)).apply();
+    }
 
     public Optional<Cliente> getClientePorId(IdCliente idCliente){
         return clientes
                 .stream()
                 .filter(cliente -> cliente.identity().equals(idCliente)).findFirst();
+    }
+
+    public Optional<IdCategoria> getIdCategoriaPorId(IdCategoria idCategoria){
+        return idCategorias
+                .stream().filter(categoria -> categoria.equals(idCategoria)).findFirst();
+    }
+
+    public Optional<IdEmpleado> getIdEmpleadoPorId(IdEmpleado idEmpleado){
+        return idEmpleados
+                .stream().filter(empleado -> empleado.equals(idEmpleado)).findFirst();
     }
 
     public Optional<Factura> getFacturaPorId(IdFactura idFactura){
